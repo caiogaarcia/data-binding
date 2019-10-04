@@ -1,0 +1,141 @@
+<section class="property-binding">
+
+  <!-- 
+  <article>
+
+      <h3>Interpolation/Interpolação</h3>        
+      <p>String renderizada com Interpolação: {{ url }} </p>        
+      <p>Resultado de 1 + 1 = {{ 1 + 1 }} </p>        
+      <p>Resultado de 1 + 1 não é {{ 1 + 1 +getValor() }} </p>
+      <p>Curso de Angular e gosto do curso:  {{ cursoAngular &&  getCurtirCurso() }}</p>
+
+  </article>
+
+  <article>
+      <h3>Property Binding</h3>
+      <img src="{{ urlImagem }}">
+      <img [src]="urlImagem">
+  </article>
+  -->
+
+  <!-- 
+  <article>
+      <h3>Class e Style Binding</h3>
+      <div>
+          Selecione uma classe:
+          <select #classe (change)="0">
+              <option value="alert-success">Sucesso</option>
+              <option value="alert-info">Info</option>
+              <option value="alert-warning">Alert</option>
+              <option value="alert-danger">Erro</option>
+          </select>
+
+          <br><br>
+          <div class="alert {{ classe.value }}" role="alert">
+            Texto colorido conforme valor do combobox
+          </div>
+
+          <div class="alert" role="alert"
+          [class.alert-success]="classe.value == 'alert-success'">
+              Sucesso
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-info]="classe.value == 'alert-info'">
+              Info
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-warning]="classe.value== 'alert-warning'">
+              Warning
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-danger]="classe.value== 'alert-danger'">
+              Erro
+            </div>            
+      </div>
+  </article>-->
+
+ 
+  <article>
+    <h3>Event binding</h3>
+    <div>
+
+      <button  (click) = "botaoClicado()" class="btn btn-primary">Me clique</button>
+    
+      <!-- keyup = quando digita qualquer coisa -->
+      <!-- keyup.enter = quando tecla enter -->
+      <!-- blur = quando o campo perde o foco -->
+      <input type="text" 
+      (keyup)="onKeyUp($event)"
+      (keyup.enter)="salvarValor(campoInput.value)"
+      (blur)="salvarValor(campoInput.value)"
+      #campoInput/>      
+      
+      <p>Valor atual: {{ valorAtual }}</p>
+      <p>Valor salvo: {{ valorSalvo }}</p>
+
+      <br>
+
+      <!-- mouseouver = quando o mouse tiver em cima do texto-->
+      <!-- mouseout = quando o mouse for tirado de cima do texto-->
+      <!-- [class.highlight] = classe sera aplicada caso o valor de mouseOver for true-->
+      
+      <span
+       (mouseover)="onMouseOverOut()"
+       (mouseout)="onMouseOverOut()"
+       [class.highlight]="isMouseOver"> 
+        Passe o mouse sobre mim
+      </span>
+      
+    </div>
+  </article>
+</section>
+
+<!--  TUDO FOI PASSADO PARA O MEU-FORM.COMPONENT.HTML
+<section class="two-way-binding">
+  <article>
+    <h3>Two-way binding</h3>
+    
+    <div>
+
+     FORMA 1 - associacao de propriedade e de evento
+      <input type="text"  
+        [value]="nome"
+        (input)="nome = $event.target.value"/>
+
+      FORMA 2 - representacao de uma entidade ( tive que importar o FormsModule no app.module.ts) 
+      <input type="text"  
+        [ngModel]="nome"
+        (ngModelChange)="nome = $event"/>
+
+      FORMA 3 - JUNTANDO OS 2 ACIMA, BIND DE PROPRIEDADE E BIND E EVENTO
+      <input type="text"
+      [(ngModel)] = "nome"/>
+
+      
+      EXIBINDO RESULTADO DOS INPUTS ACIMA
+      <p>Voce digitou: {{ nome }} </p>
+    </div>
+
+    TRABALHANDO COM OBJETOS
+    <div>
+      <input type="text" [(ngModel)]="pessoa.nome"/>
+      <input type="text" [(ngModel)]="pessoa.idade"/>
+    
+      <p>Nome: {{pessoa.nome}} - Idade: {{pessoa.idade}}</p>
+    </div> 
+  
+  </article>
+</section> -->
+
+<!-- USANDO COMPONENTE CRIADO. Para usar aqui, no meu-form.module.ts foi exportado o Component em exports 
+<app-meu-form></app-meu-form> -->
+
+<section class="input-output-properties">
+    <article>
+      <h3>Input/Output Properties</h3>
+      
+      <app-curso [nome]="nomeDoCurso"></app-curso>
+    
+    </article>
+  </section>
+

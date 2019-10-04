@@ -1,0 +1,35 @@
+<section class="two-way-binding">
+        <article>
+          <h3>Two-way binding</h3>
+          
+          <div>
+      
+          <!-- FORMA 1 - associacao de propriedade e de evento-->
+            <input type="text"  
+              [value]="nome"
+              (input)="nome = $event.target.value"/>
+      
+            <!-- FORMA 2 - representacao de uma entidade ( tive que importar o FormsModule no app.module.ts) -->
+            <input type="text"  
+              [ngModel]="nome"
+              (ngModelChange)="nome = $event"/>
+      
+            <!-- FORMA 3 - JUNTANDO OS 2 ACIMA, BIND DE PROPRIEDADE E BIND E EVENTO-->
+            <input type="text"
+            [(ngModel)] = "nome"/>
+      
+            
+            <!-- EXIBINDO RESULTADO DOS INPUTS ACIMA-->
+            <p>Voce digitou: {{ nome }} </p>
+          </div>
+      
+          <!-- TRABALHANDO COM OBJETOS-->
+          <div>
+            <input type="text" [(ngModel)]="pessoa.nome"/>
+            <input type="text" [(ngModel)]="pessoa.idade"/>
+          
+            <p>Nome: {{pessoa.nome}} - Idade: {{pessoa.idade}}</p>
+          </div> 
+        
+        </article>
+      </section>
